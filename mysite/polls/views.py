@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.template import loader
 
 from .models import Question
 
@@ -9,7 +8,7 @@ def index(request):
     context = {
         'latest_question_list':latest_question_list,
     }
-    return HttpResponse(request, 'polls/index.html', context)
+    return render(request, 'polls/index.html', context)
 
 def detail(request, question_id):
     response = f"You are looking at question {question_id}"
